@@ -1,0 +1,14 @@
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
+/* Huvudområdet som innehåller sidorna */
+.app-main {
+  flex: 1 1 auto;
+  min-height: 0; /* VIKTIGT: tillåter child att scrolla */
+  overflow-y: auto; /* scrolla här */
+  -webkit-overflow-scrolling: touch; /* mjuk iOS-scroll */
+
+}

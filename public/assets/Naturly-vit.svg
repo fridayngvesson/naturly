@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Lager_1" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 85.26 29.3">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: url(#Namnlös_övertoning_103-2);
+      }
+
+      .cls-3 {
+        fill: #fff;
+        font-family: LeagueSpartan-Regular, 'League Spartan';
+        font-size: 24px;
+        font-variation-settings: 'wght' 400;
+      }
+
+      .cls-4 {
+        fill: url(#Namnlös_övertoning_103);
+      }
+    </style>
+    <linearGradient id="Namnlös_övertoning_103" data-name="Namnlös övertoning 103" x1="65.86" y1="4.45" x2="75.53" y2="4.45" gradientTransform="translate(4.65 2.61) rotate(-1.58) scale(.92 .89) skewX(-5.19)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="0" stop-color="#fefefd" stop-opacity="1"/>
+      <stop offset="0" stop-color="#fdfdf7" stop-opacity=".99"/>
+      <stop offset="0" stop-color="#fafbec" stop-opacity=".99"/>
+      <stop offset="0" stop-color="#f7f7dd" stop-opacity=".98"/>
+      <stop offset="0" stop-color="#f3f3c9" stop-opacity=".96"/>
+      <stop offset="0" stop-color="#eeeeb2" stop-opacity=".94"/>
+      <stop offset="0" stop-color="#eaeba0" stop-opacity=".93"/>
+      <stop offset=".2" stop-color="#92b668" stop-opacity=".96"/>
+      <stop offset=".38" stop-color="#458837" stop-opacity=".99"/>
+      <stop offset=".46" stop-color="#287624"/>
+      <stop offset=".58" stop-color="#1b6629"/>
+      <stop offset=".81" stop-color="#074e33"/>
+      <stop offset=".95" stop-color="#004537"/>
+    </linearGradient>
+    <linearGradient id="Namnlös_övertoning_103-2" data-name="Namnlös övertoning 103" x1="63.16" y1="4.89" x2="69.94" y2="4.89" gradientTransform="translate(1.12 -4.48) rotate(4.91)" xlink:href="#Namnlös_övertoning_103"/>
+  </defs>
+  <text class="cls-3" transform="translate(0 19.92)"><tspan x="0" y="0">Naturly</tspan></text>
+  <path class="cls-1" d="M52.42,16.35c.32-.13.64-.27.99-.31.19-.02.39-.02.58-.03.76-.04,1.5-.36,2.05-.88"/>
+  <g>
+    <path class="cls-4" d="M73.95,1.31s-.11,4.6-2.68,6.51-6.62.41-6.62.41c0,0,.11-4.6,2.68-6.51s6.62-.41,6.62-.41Z"/>
+    <path class="cls-2" d="M63.37,8.71c6.09-2.32,7.25-5.23,7.25-5.23"/>
+  </g>
+</svg>

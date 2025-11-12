@@ -1,0 +1,85 @@
+.footer {
+  /* Lägger en mörk overlay (rgba) ovanpå en bakgrundsbild */
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/public/assets/hero-bg.jpg");
+  background-size: cover;        /* Ser till att bilden täcker hela ytan */
+  background-position: center;   /* Centrerar bilden */                
+  padding: 4rem 1.5rem;        /* Inre marginal (upp/ned, vänster/höger) */
+}
+
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Gör att kolumnerna går under varandra på små skärmar */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px;
+}
+
+.footer-column h3 {
+  margin-bottom: 10px;
+  color: var(--text-color-light);
+}
+
+.footer-column a {
+  display: block;
+  margin-bottom: 5px;
+  text-decoration: none;
+  color: var(--text-color-light);
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.newsletter {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.newsletter input {
+  flex: 1;
+  padding: 5px;
+}
+
+.newsletter button {
+  padding: 5px 10px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Media queries för mobil */
+@media (max-width: 768px) {
+  
+  
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .newsletter {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .newsletter input,
+  .newsletter button {
+    width: 100%;
+  }
+
+  .social-icons {
+    justify-content: flex-start;
+  }
+}

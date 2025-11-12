@@ -1,0 +1,52 @@
+.card-articles-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem; /* mellanrum mellan korten */
+    justify-content: center;
+    margin: 1rem 1rem;
+    
+  }
+  
+  .card-articles-wrapper div {
+    flex: 1 1 250px; /* varje kort tar upp minst 300px men växer vid plats */
+    max-width: 450px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding-bottom: 1rem;
+  }
+  
+  .img-article {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+  }
+  
+  .article-p{
+    padding: 0.2rem .8rem;
+    color: var(--dark-green);
+  }
+
+  @media (max-width: 768px) {
+    .card-articles-wrapper {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 1rem 1rem 1rem; /* lite luft på sidorna */
+      margin: 0;
+      gap: 0; /* ❌ ta bort gap */
+    }
+  
+    .card-articles-wrapper div {
+      flex: 0 0 80%;
+      min-width: 250px;
+      max-width: 300px;
+      margin-right: 1rem; /* ersätter gap med margin */
+      scroll-snap-align: start;
+    }
+  
+    .card-articles-wrapper div:last-child {
+      margin-right: 1rem; /* extra luft på slutet */
+    }
+  }
+  

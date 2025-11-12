@@ -1,0 +1,138 @@
+/* === NAVBAR STYLING === */
+.navbar {
+  /* Lägger en mörk overlay (rgba) ovanpå en bakgrundsbild */
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/public/assets/hero-bg.jpg");
+  background-size: cover;        /* Ser till att bilden täcker hela ytan */
+  background-position: center;   /* Centrerar bilden */
+  height: 10vh;                  /* Sätter höjden till 10% av viewport-höjden */
+  padding: 0.5rem 1.5rem;        /* Inre marginal (upp/ned, vänster/höger) */
+}
+
+/* Wrapper runt allt innehåll i navbaren */
+.nav-content-wrapper {
+  display: flex;                 /* Lägger elementen på rad */
+  flex-direction: row;           /* Horisontellt */
+  justify-content: space-between;/* Sprider ut logga, länk, sök etc */
+  align-items: center;           /* Vertikalt centrerade */
+}
+
+/* Logotypen */
+.logotype {
+  width: 20vw;                   /* Tar upp 20% av fönstrets bredd */
+  padding-top: 0.5rem;           /* Lite luft ovanför */
+}
+
+/* Navigationslänkar */
+.nav-link {
+  text-decoration: none;         /* Tar bort understrykning */
+  color: var(--text-color-light);/* Textfärg (ljus variant) */
+  font-family: var(--font-heading); /* Samma font som rubriker */
+}
+
+/* === SÖKDELEN === */
+.search-bar-wrapper {
+  display: flex;                 /* Flexlayout */
+  align-items: center;           /* Vertikal centrering */
+  justify-content: center;       /* Horisontell centrering */
+}
+
+/* Container runt själva sökfältet */
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  width: 100%;                   /* Fyller ut tillgängligt utrymme */
+  max-width: 50vw;               /* Men inte bredare än halva skärmen */
+  border: 1px solid #ccc;        /* Tunn ram */
+  border-radius: 25px;           /* Rundade kanter */
+  overflow: hidden;              /* Döljer innehåll som sticker ut */
+  background-color: var(--bg-color);
+  padding: 5px;                  /* Lite extra inre marginal */
+  gap: 8px;                      /* Mellanrum mellan ikon och input */
+}
+
+/* Liten cirkel bakom sökikonen */
+.search-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--light-green); /* Ljusgrön bakgrund */
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;            /* Gör den cirkulär */
+  margin-left: 5px;
+  flex-shrink: 0;                /* Behåller sin storlek */
+}
+
+/* Sökikonens färg */
+.search-icon {
+  color: var(--dark-green);
+}
+
+/* Själva inputfältet */
+.search-input {
+  background-color: var(--bg-color);
+  border: none;                  /* Tar bort kantlinje */
+  outline: none;                 /* Tar bort fokusram */
+  padding: 0 0.5rem;             /* Lite sidopadding */
+  height: 100%;                  /* Fyller höjden */
+  flex: 1;                       /* Tar upp allt tillgängligt utrymme */
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* Placeholder-texten i inputfältet */
+input.search-input::placeholder {
+  color: var(--dark-green);
+}
+
+/* === HAMBURGER-MENY FÖR MOBIL === */
+
+/* Själva knappen (ikonknappen) */
+.menu-btn {
+  background: none;              /* Ingen bakgrund */
+  border: none;                  /* Ingen kant */
+  cursor: pointer;               /* Muspekare blir hand */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Meny-listan som visas när man klickar på knappen */
+.nav-links {
+  position: absolute;            /* Placeras ovanpå annat innehåll */
+  top: 60px;                     /* Justeras nedanför navbaren */
+  right: 10px;                   /* Fästs till höger */
+  background-color: var(--dark-green);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Skugga för djup */
+  list-style: none;              /* Tar bort punkter */
+  padding: .2rem 0.2rem;
+  width: 150px;
+  z-index: 100;                  /* Ligger över andra element */
+}
+
+/* Varje länk i menyn */
+.nav-links li {
+  margin: 1rem 0;                /* Luft mellan varje länk */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-heading);
+}
+
+/* Stilen på länkarna i menyn */
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-color-light);
+  font-weight: 500;
+  margin-left: .5rem;
+}
+
+/* === SLUT PÅ HAMBURGER-MENY === */
+
+/* Media queries för desktop */
+@media (min-width: 1024px) {
+
+  .menu-btn {
+    display: none;
+  }
+}

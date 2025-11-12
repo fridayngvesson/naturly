@@ -1,0 +1,18 @@
+.home-container {
+  padding: 1rem .2rem;
+}
+
+.section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+  text-align: center; /* Default centered for mobile */
+}
+
+/* Desktop styles */
+@media screen and (min-width: 768px) {
+  .section-title {
+    text-align: left; /* Left-aligned for desktop */
+    padding-left: 1rem; /* Optional: adds some spacing from the left edge */
+  }
+}

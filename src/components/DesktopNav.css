@@ -1,0 +1,99 @@
+/* === NAVBAR STYLING === */
+.navbar-desktop {
+  /* Lägger en mörk overlay (rgba) ovanpå en bakgrundsbild */
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/public/assets/hero-bg.jpg");
+  background-size: cover;        /* Ser till att bilden täcker hela ytan */
+  background-position: center;   /* Centrerar bilden */
+  min-height: 10vh;                  /* Sätter höjden till 10% av viewport-höjden */
+  padding: 0.5rem 1.5rem;        /* Inre marginal (upp/ned, vänster/höger) */
+  width: 100%;
+}
+
+/* Wrapper runt allt innehåll i navbaren */
+.nav-link-wrapper-desktop {
+  max-width: 1440px; /* Matcha container */
+  width: 100%;
+  margin: 0 auto; /* Centrera innehållet */
+  display: flex;                 /* Lägger elementen på rad */
+  flex-direction: row;           /* Horisontellt */
+  justify-content: center;/* Sprider ut logga, länk, sök etc */
+  align-items: center;           /* Vertikalt centrerade */
+}
+
+/* Logotypen */
+.logotype-desktop {
+  width: 10vw;                   /* Tar upp 20% av fönstrets bredd */
+  padding-top: 0.5rem;           /* Lite luft ovanför */
+}
+
+.nav-link-desktop {
+  text-decoration: none;         /* Tar bort understrykning */
+  color: var(--text-color-light);/* Textfärg (ljus variant) */
+  font-family: var(--font-heading); /* Samma font som rubriker */
+  margin-right: 2rem;
+  margin-top: 2rem;
+}
+
+
+/* === SÖKDELEN === */
+
+/* Container runt själva sökfältet */
+.search-bar-container-desktop {
+  display: flex;
+  align-items: center;
+  width: 100%;                   /* Fyller ut tillgängligt utrymme */
+  max-width: 50vw;               /* Men inte bredare än halva skärmen */
+  border: 1px solid #ccc;        /* Tunn ram */
+  border-radius: 25px;           /* Rundade kanter */
+  overflow: hidden;              /* Döljer innehåll som sticker ut */
+  background-color: var(--bg-color);
+  padding: 5px;                  /* Lite extra inre marginal */
+  gap: 8px;                      /* Mellanrum mellan ikon och input */
+}
+
+/* Liten cirkel bakom sökikonen */
+.search-icon-wrapper-desktop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--light-green); /* Ljusgrön bakgrund */
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;            /* Gör den cirkulär */
+  margin-left: 5px;
+  flex-shrink: 0;                /* Behåller sin storlek */
+}
+
+/* Sökikonens färg */
+.search-icon {
+  color: var(--dark-green);
+}
+
+/* Själva inputfältet */
+.search-input {
+  background-color: var(--bg-color);
+  border: none;                  /* Tar bort kantlinje */
+  outline: none;                 /* Tar bort fokusram */
+  padding: 0 0.5rem;             /* Lite sidopadding */
+  height: 100%;                  /* Fyller höjden */
+  flex: 1;                       /* Tar upp allt tillgängligt utrymme */
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* Placeholder-texten i inputfältet */
+input.search-input::placeholder {
+  color: var(--dark-green);
+}
+
+.favorite-link {
+  display: flex;
+  align-items: center;
+  
+}
+.favorite-link a {
+  margin-left: .5rem;
+  text-decoration: none;
+  color: var(--text-color-light);
+  
+}
