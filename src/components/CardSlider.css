@@ -36,6 +36,7 @@
   overflow: hidden;
   transition: transform 0.3s ease;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .card:hover {

@@ -42,7 +42,7 @@ const Hem = () => {
             id: b._id,
             title: b.title,
             image: b.images[0],
-            price: b.price,
+            price: `${b.price} kr/per natt`,
             description: b.details,
           }))}
         />
@@ -55,7 +55,7 @@ const Hem = () => {
             id: b._id,
             title: b.title,
             image: b.images[0],
-            price: b.price,
+            price: `${b.price} kr/per natt`,
             description: b.details,
           }))}
         />

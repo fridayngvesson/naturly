@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import Hem from "./pages/Hem"
 import Boende from "./pages/Boende"
 import Upplevelser from "./pages/Upplevelser"
-import LogIn from "./pages/Login"
+import LogIn from "./pages/LogIn"
 import Favoriter from "./pages/Favoriter"
 import CardSlider from './components/CardSlider'
 import Layout from "./layout/Layout"
 import BoendeDetailPage from "./pages/BoendeDetailPage"
+import BookingPage from './pages/BookingPage'
 
 function AppWrapper() {
   const location = useLocation()
@@ -24,6 +25,7 @@ function AppWrapper() {
         <Route path="/upplevelser" element={<Upplevelser />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/favoriter" element={<Favoriter />} />
+        <Route path="/booking" element={<BookingPage />} />
       </Routes>
       <CardSlider />
     </Layout>

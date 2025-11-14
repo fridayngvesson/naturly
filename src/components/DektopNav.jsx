@@ -54,15 +54,11 @@ const DesktopNav = () => {
                         <Link to="/favoriter">Favoriter</Link>
                     </div>
 
+                    {/* LogIn */}
                     <div>
-                        <AccountCircleOutlinedIcon sx={{ fontSize: 50, color: "white" }} />
-                        <Link to="/login"></Link>
+                        <Link to="/login"><AccountCircleOutlinedIcon sx={{ fontSize: 50, color: "white" }} /></Link>
                     </div>
-
-
-                
             </div>
-
         </nav>
     )
 }

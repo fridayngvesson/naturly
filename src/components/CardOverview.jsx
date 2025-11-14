@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const CardOverview = ({ data, title }) => {
   if (!data || !Array.isArray(data) || data.length === 0) return null;
-
+  console.log(data)
   return (
     <div className="overview-wrapper">
       {title && <h2 className="overview-title">{title}</h2>}

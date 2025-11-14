@@ -11,7 +11,7 @@ const ExperienceSlider = ({ data, showDescription = true }) => {
     <div className="slider-wrapper">
       <div className="slider-container">
         {data.map((item) => (
-          <div key={item.id} className="card">
+          <div key={item._id} className="card">
             <div className="image-wrapper">
               <img src={item.image} alt={item.title} className="card-image" />
             </div>
