@@ -9,6 +9,8 @@ import CardSlider from './components/CardSlider'
 import Layout from "./layout/Layout"
 import BoendeDetailPage from "./pages/BoendeDetailPage"
 import BookingPage from './pages/BookingPage'
+import ConfirmationPage from './pages/ConfirmationPage'
+import { FavoritesProvider } from "./context/FavoritesContext"
 
 function AppWrapper() {
   const location = useLocation()
@@ -26,6 +28,7 @@ function AppWrapper() {
         <Route path="/login" element={<LogIn />} />
         <Route path="/favoriter" element={<Favoriter />} />
         <Route path="/booking" element={<BookingPage />} />
+        <Route path="/confirmation" element={<ConfirmationPage />} />
       </Routes>
       <CardSlider />
     </Layout>
@@ -35,7 +38,9 @@ function AppWrapper() {
 function App() {
   return (
     <Router>
-      <AppWrapper />
+      <FavoritesProvider>
+        <AppWrapper />
+      </FavoritesProvider>
     </Router>
   )
 }

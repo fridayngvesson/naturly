@@ -1,45 +1,84 @@
 import React, { useState } from "react";
 import { TextField, Button, Avatar, Typography, Box, Link } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
+import { useNavigate } from "react-router-dom";
 
-const LogInRegister = () => {
-  const [isLogin, setIsLogin] = useState(false);
+const LogIn = () => {
+  const navigate = useNavigate();
+
+  const [isLogin, setIsLogin] = useState(true); // default: login
+
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(""); // only used on register
   const [password, setPassword] = useState("");
+
   const [message, setMessage] = useState("");
 
   const greenDark = "#063831";
   const buttonYellow = "#ecf39e";
 
+  // ---------------------------
+  // REGISTER USER
+  // ---------------------------
   const handleRegister = async () => {
+    if (!username || !email || !password) {
+      setMessage("Fyll i alla fält.");
+      return;
+    }
+
     try {
-      const response = await fetch("http://localhost:5050/api/auth/register", {
+      const res = await fetch("http://localhost:5050/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, email, password }),
       });
-      const data = await response.json();
-      setMessage(data.message);
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setMessage(data.message || "Något gick fel.");
+      } else {
+        setMessage("Registrering lyckades! Logga in.");
+        setIsLogin(true);
+      }
     } catch (err) {
-      console.error(err);
-      setMessage("Något gick fel vid registrering");
+      setMessage("Serverfel, försök igen senare.");
     }
   };
 
+  // ---------------------------
+  // LOGIN USER
+  // ---------------------------
   const handleLogin = async () => {
+    if (!username || !password) {
+      setMessage("Fyll i användarnamn och lösenord.");
+      return;
+    }
+
     try {
-      const response = await fetch("http://localhost:5050/api/auth/login", {
+      const res = await fetch("http://localhost:5050/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ username, password }),
       });
-      const data = await response.json();
-      setMessage(data.message);
-      if (data.token) localStorage.setItem("token", data.token);
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setMessage(data.message || "Fel inloggningsuppgifter");
+      } else {
+        setMessage("Inloggning lyckades!");
+
+        // spara token
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.user));
+
+        setTimeout(() => {
+          navigate("/");
+        }, 900);
+      }
     } catch (err) {
-      console.error(err);
-      setMessage("Något gick fel vid login");
+      setMessage("Serverfel.");
     }
   };
 
@@ -56,7 +95,6 @@ const LogInRegister = () => {
         backgroundColor: "#fff",
       }}
     >
-      {/* Icon med grön cirkel */}
       <Avatar
         sx={{
           bgcolor: greenDark,
@@ -68,23 +106,21 @@ const LogInRegister = () => {
         <PersonIcon sx={{ fontSize: 50, color: "#fff" }} />
       </Avatar>
 
-      {/* Username */}
-      {!isLogin && (
-        <TextField
-          fullWidth
-          label="Username"
-          margin="normal"
-          variant="outlined"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          sx={{
-            "& .MuiOutlinedInput-root": { borderRadius: 2 },
-            "& label": { color: greenDark },
-          }}
-        />
-      )}
+      <Typography variant="h5" sx={{ mb: 2, color: greenDark }}>
+        {isLogin ? "Logga in" : "Registrera"}
+      </Typography>
 
-      {/* Email */}
+      {/* USERNAME */}
+      <TextField
+        fullWidth
+        label="Username"
+        margin="normal"
+        variant="outlined"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+
+      {/* EMAIL - only when registering */}
       {!isLogin && (
         <TextField
           fullWidth
@@ -93,14 +129,10 @@ const LogInRegister = () => {
           variant="outlined"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          sx={{
-            "& .MuiOutlinedInput-root": { borderRadius: 2 },
-            "& label": { color: greenDark },
-          }}
         />
       )}
 
-      {/* Password */}
+      {/* PASSWORD */}
       <TextField
         fullWidth
         label="Password"
@@ -109,72 +141,51 @@ const LogInRegister = () => {
         variant="outlined"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        sx={{
-          "& .MuiOutlinedInput-root": { borderRadius: 2 },
-          "& label": { color: greenDark },
-        }}
       />
 
-      {/* Forgot password vid login */}
-      {isLogin && (
-        <Typography variant="body2" sx={{ mt: 1 }}>
-          <Link href="#" underline="hover" sx={{ color: greenDark }}>
-            Forgot password?
-          </Link>
-        </Typography>
-      )}
-
-      {/* Meddelande */}
-      {message && <Typography sx={{ mt: 2, color: greenDark }}>{message}</Typography>}
-
-      {/* Knappar */}
-      <Box sx={{ display: "flex", justifyContent: "space-between", mt: 3, gap: 2 }}>
-        <Button
-          variant="contained"
-          onClick={handleRegister}
-          sx={{
-            backgroundColor: buttonYellow,
-            color: greenDark,
-            borderRadius: 3,
-            padding: "10px 20px",
-            fontWeight: "bold",
-            "&:hover": { backgroundColor: "#d9e38d" },
-            flex: 1,
-          }}
-        >
-          Register
-        </Button>
-        <Button
-          variant="contained"
-          onClick={handleLogin}
-          sx={{
-            backgroundColor: buttonYellow,
-            color: greenDark,
-            borderRadius: 3,
-            padding: "10px 20px",
-            fontWeight: "bold",
-            "&:hover": { backgroundColor: "#d9e38d" },
-            flex: 1,
-          }}
-        >
-          Login
-        </Button>
-      </Box>
-
-      {/* Växla mellan login/register */}
-      <Typography sx={{ mt: 2 }}>
-        {isLogin ? "Inte registrerad?" : "Redan registrerad?"}{" "}
+      {/* SWITCH BETWEEN LOGIN/REGISTER */}
+      <Typography variant="body2" sx={{ mt: 1 }}>
+        {isLogin ? "Har du inget konto?" : "Har du redan ett konto?"}{" "}
         <Link
-          href="#"
-          underline="hover"
-          sx={{ color: greenDark, cursor: "pointer" }}
           onClick={() => setIsLogin(!isLogin)}
+          sx={{ cursor: "pointer", color: greenDark, fontWeight: "bold" }}
         >
-          {isLogin ? "Registrera här" : "Logga in här"}
+          {isLogin ? "Registrera dig" : "Logga in"}
         </Link>
       </Typography>
+
+      {/* BUTTON */}
+      <Button
+        fullWidth
+        variant="contained"
+        onClick={isLogin ? handleLogin : handleRegister}
+        sx={{
+          mt: 3,
+          backgroundColor: buttonYellow,
+          color: greenDark,
+          borderRadius: 3,
+          padding: "10px 20px",
+          fontWeight: "bold",
+          "&:hover": { backgroundColor: "#d9e38d" },
+        }}
+      >
+        {isLogin ? "Login" : "Register"}
+      </Button>
+
+      {/* FEEDBACK */}
+      {message && (
+        <Typography
+          variant="body2"
+          sx={{
+            mt: 3,
+            color: message.includes("lyckades") ? "green" : "red",
+          }}
+        >
+          {message}
+        </Typography>
+      )}
     </Box>
   );
 };
 
-export default LogInRegister;
+export default LogIn;

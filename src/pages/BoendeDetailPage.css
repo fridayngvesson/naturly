@@ -14,12 +14,16 @@
       flex-direction: row;
       align-items: flex-start;
       justify-content: space-between;
-      padding: 0 2rem;
+      padding: 0 1rem;
+      max-width: 1200px;
+      margin: 0 auto; /* Centrerar hela containern */
     }
+    
 
     .boende-detail-image {
       max-width: 100%;
       margin: 0 auto;
     }
   }
+  
   

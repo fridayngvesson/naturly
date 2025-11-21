@@ -1,0 +1,41 @@
+/* ConfirmationPage.css */
+.confirmation-page {
+    max-width: 700px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .confirmation-info {
+    display: flex;
+    gap: 20px;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+  }
+  
+  .confirmation-info img {
+    width: 180px;
+    border-radius: 12px;
+  }
+  
+  .confirmation-info div {
+    flex: 1;
+    text-align: left;
+  }
+  
+.nav-back-btn {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 15px;
+  border: 1px solid var(--dark-green);
+  background: var(--light-green, #1a6b4f);
+  color: var(--dark-green);
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.nav-back-btn:hover {
+  background-color: var(--dark-green);
+  color: white;
+}

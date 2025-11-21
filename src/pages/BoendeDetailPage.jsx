@@ -46,12 +46,16 @@ const BoendeDetailPage = () => {
 
       <div className="boende-detalj">
         <BoendeInfo
+          id={boende._id}
           title={boende.title}
           location={boende.location}
           rooms={boende.bedrooms}
           guests={boende.guests}
           rating={boende.rating}
           rules={boende.rules || []}
+          price={boende.price}
+          image={boende.images?.[0]}
+          petFriendly={boende.petFriendly ?? boende.dogFriendly ?? false}
         />
         <BokningsRuta 
         price={boende.price}
